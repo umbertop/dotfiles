@@ -13,10 +13,14 @@
 	ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
 	pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
 	st = status
+	sts = status --short
 	br = branch
 	ba = branch -a
 	bm = branch --merged
 	bn = branch --no-merged
+	fh = "!git fetch origin/$1"
+	rb = "!git rebase $1"
+	rbi = "!git rebase --interactive $1"
 	df = "!git hist | peco | awk '{print $2}' | xargs -I {} git diff {}^ {}"
 	hist = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
 	llog = log --graph --name-status --pretty=format:\"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset\" --date=relative
